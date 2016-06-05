@@ -23,4 +23,11 @@ P prints Strings.
 ↦ A $EXAMPLE "HELLO WORLD" P $EXAMPLE X
 will print "HELLO WORLD".
 
-That's it for now. I will add math soon, then it'll become interesting.
+MATH
+
+There are 4 math operations right now, +, -, * and /.
+
+They execute like this:
+
+↦ A $EXAMPLE * 2 8 P $EXAMPLE X
+will print 16.0.
