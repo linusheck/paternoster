@@ -42,6 +42,7 @@ fun findOperation(initChar: Char): Operation? {
         '"' -> return StringOperation()
         'P' -> return PrintOperation()
         '$' -> return VariableOperation()
+        'X' -> System.exit(0)
         ' ' -> return null //Skip whitespace
     }
     throw UnsupportedOperationException("paternoster does not know that char: " + initChar)

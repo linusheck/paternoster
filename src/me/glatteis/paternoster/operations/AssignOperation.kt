@@ -18,6 +18,7 @@ class AssignOperation : Operation() {
             variableOperation?.add(char)
             return
         }
+        if (variableOperation == null) return
         if (operation == null) {
             operation = findOperation(char)
             return

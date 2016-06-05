@@ -30,19 +30,23 @@ fun main(args: Array<String>) {
     do {
         //println(me.glatteis.paternoster.getLocation.x.toString() + " " + me.glatteis.paternoster.getLocation.y.toString())
         currentChar = code[location.x][location.y]
-        if (currentChar == 'X') {
-            System.exit(0)
-        }
+
         if (arrows.contains(currentChar)) {
             direction.setDirection(currentChar)
-        } else if (RAM.operation == null) {
+            location.add(direction)
+            continue
+        }
+
+        if (RAM.operation != null && RAM.operation?.finished!!) {
+            RAM.operation = null
+        }
+        if (RAM.operation == null) {
             val newOperation = findOperation(currentChar)
             RAM.operation = newOperation
-        } else if (RAM.operation?.finished!!) {
-            RAM.operation = null
         } else {
             RAM.operation!!.add(currentChar)
         }
+
         location.add(direction)
     } while (true)
 }

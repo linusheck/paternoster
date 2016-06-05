@@ -16,11 +16,12 @@ class PrintOperation: Operation() {
             operation = findOperation(char)
             return
         }
-        if (!operation!!.finished) {
+        if (!(operation!!.finished)) {
             operation!!.add(char)
-            return
         }
-        println(operation!!.result())
-        finished = true
+        if (operation!!.finished) {
+            println(operation!!.result())
+            finished = true
+        }
     }
 }
