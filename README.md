@@ -13,26 +13,25 @@ X terminates the program.
 
 A is an assign operation.
 
-↦ A $EXAMPLE "HELLO WORLD" X
+    ↦ A $EXAMPLE "HELLO WORLD" X
 will define $EXAMPLE as "HELLO WORLD".
 
 "" is a String.
 
 P prints Strings.
 
-↦ A $EXAMPLE "HELLO WORLD" P $EXAMPLE X
+    ↦ A $EXAMPLE "HELLO WORLD" P $EXAMPLE X
 will print "HELLO WORLD".
 
 There are 4 math operations right now, +, -, * and /.
 
 They execute like this:
 
-↦ A $EXAMPLE * 2 8 P $EXAMPLE X
+    ↦ A $EXAMPLE * 2 8 P $EXAMPLE X
 will print 16.0.
 
 There are also now conditions.
-
-          → P "The case."     ↓
-↦ ? = 1 1 ↿ P "Not the case." → X
+              → P "The case."     ↓
+    ↦ ? = 1 1 ↿ P "Not the case." → X
 They work with the arrows ↿ ⇃ ↼ ⇀.
 Consult all_arrows.txt for all of the arrows.
