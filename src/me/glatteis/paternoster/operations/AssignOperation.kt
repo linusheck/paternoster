@@ -11,7 +11,7 @@ class AssignOperation : Operation() {
     var variableOperation: VariableOperation? = null
     override fun add(char: Char) {
         if (variableOperation == null && char == 'A') return
-        if (char == '$') {
+        if (variableOperation == null && char == '$') {
             variableOperation = VariableOperation()
         }
         if (variableOperation != null && !(variableOperation as VariableOperation).finished) {
@@ -21,7 +21,6 @@ class AssignOperation : Operation() {
         if (variableOperation == null) return
         if (operation == null) {
             operation = findOperation(char)
-            return
         }
         (operation as Operation).add(char)
         if ((operation as Operation).finished) {

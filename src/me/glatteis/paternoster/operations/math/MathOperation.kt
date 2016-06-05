@@ -18,7 +18,7 @@ abstract class MathOperation: Operation() {
         }
         if (operationOne == null) {
             if (char == ' ') return
-            else operationOne = findOperation(char)
+            operationOne = findOperation(char)
         }
         if (operationOne != null && !(operationOne!!.finished)) {
             operationOne!!.add(char)

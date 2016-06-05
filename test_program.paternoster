@@ -1,1 +1,7 @@
-↦ A $RESULT / 84 2 P $RESULT X
+↦ A $a 0 → ? $a == 1 ⇂ A $a 1 ↓
+                     → A $a 0 ↓
+↓                             ←
+         ↑                                   ←
+                            →" k   ↓
+→ P "You're a" + ? $a == 1  ↾" squ → id now!"↑
+
