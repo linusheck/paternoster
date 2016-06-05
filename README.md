@@ -36,3 +36,5 @@ There are also now conditions.
     ↦ ? = 1 1 ↿ P "Not the case." → X
 They work with the arrows ↿ ⇃ ↼ ⇀.
 Consult all_arrows.txt for all of the arrows.
+
+There are the comparison operators =, <, and >. They work like math operations.
