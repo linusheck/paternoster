@@ -1,3 +1,5 @@
+package me.glatteis.paternoster
+
 import java.io.FileInputStream
 import java.util.*
 
@@ -26,7 +28,7 @@ fun main(args: Array<String>) {
     createCodeInListForm(codeAsString)
     location = findStart() ?: throw UnsupportedOperationException("No start defined!")
     do {
-        //println(location.x.toString() + " " + location.y.toString())
+        //println(me.glatteis.paternoster.getLocation.x.toString() + " " + me.glatteis.paternoster.getLocation.y.toString())
         currentChar = code[location.x][location.y]
         if (currentChar == 'X') {
             System.exit(0)
