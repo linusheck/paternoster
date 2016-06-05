@@ -23,7 +23,7 @@ var currentChar: Char = '!'
 fun main(args: Array<String>) {
     if (args.size == 0) throw UnsupportedOperationException("You have to specify a file.")
     val file = args[0]
-    val scanner = Scanner(FileInputStream(file))
+    val scanner = Scanner(FileInputStream(file), "UTF-8")
     var codeAsString = ""
     while (scanner.hasNextLine()) {
         codeAsString += scanner.nextLine() + "\n"
@@ -31,7 +31,6 @@ fun main(args: Array<String>) {
     createCodeInListForm(codeAsString)
     Pointing.location = findStart() ?: throw UnsupportedOperationException("No start defined!")
     do {
-        //println(me.glatteis.paternoster.getLocation.x.toString() + " " + me.glatteis.paternoster.getLocation.y.toString())
         currentChar = code[Pointing.location.x][Pointing.location.y]
 
         if (arrows.contains(currentChar)) {
