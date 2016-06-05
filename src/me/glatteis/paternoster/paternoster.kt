@@ -43,7 +43,8 @@ fun main(args: Array<String>) {
         if (RAM.operation == null) {
             val newOperation = findOperation(currentChar)
             RAM.operation = newOperation
-        } else {
+        }
+        if (RAM.operation != null) {
             RAM.operation!!.add(currentChar)
         }
 

@@ -7,11 +7,16 @@ import me.glatteis.paternoster.Operation
  */
 class StringOperation: Operation() {
     var string = ""
+    var firstChar = true
     override fun add(char: Char) {
+        if (firstChar) {
+            firstChar = false
+            return
+        }
         if (char == '"') finished = true
         else string += char
     }
-    override fun result(): Any {
+    override fun result(): String {
         return string
     }
 }

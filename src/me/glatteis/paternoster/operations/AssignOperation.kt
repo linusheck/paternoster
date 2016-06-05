@@ -10,9 +10,9 @@ class AssignOperation : Operation() {
     var operation: Operation? = null
     var variableOperation: VariableOperation? = null
     override fun add(char: Char) {
+        if (variableOperation == null && char == 'A') return
         if (char == '$') {
             variableOperation = VariableOperation()
-            return
         }
         if (variableOperation != null && !(variableOperation as VariableOperation).finished) {
             variableOperation?.add(char)

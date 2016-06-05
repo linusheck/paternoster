@@ -9,6 +9,7 @@ import me.glatteis.paternoster.RAM
 class VariableOperation: Operation() {
     var variableName: String = ""
     override fun add(char: Char) {
+        if (char == '$') return
         if (char == ' ') {
             finished = true
             return

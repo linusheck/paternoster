@@ -1,9 +1,10 @@
 package me.glatteis.paternoster
 
-import me.glatteis.paternoster.operations.AssignOperation
-import me.glatteis.paternoster.operations.PrintOperation
-import me.glatteis.paternoster.operations.StringOperation
-import me.glatteis.paternoster.operations.VariableOperation
+import me.glatteis.paternoster.operations.*
+import me.glatteis.paternoster.operations.math.AddOperation
+import me.glatteis.paternoster.operations.math.DivOperation
+import me.glatteis.paternoster.operations.math.MulOperation
+import me.glatteis.paternoster.operations.math.SubOperation
 import java.util.*
 
 object RAM {
@@ -42,6 +43,11 @@ fun findOperation(initChar: Char): Operation? {
         '"' -> return StringOperation()
         'P' -> return PrintOperation()
         '$' -> return VariableOperation()
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.' -> return NumberOperation()
+        '+' -> return AddOperation()
+        '-' -> return SubOperation()
+        '*' -> return MulOperation()
+        '/' -> return DivOperation()
         'X' -> System.exit(0)
         ' ' -> return null //Skip whitespace
     }
