@@ -18,7 +18,7 @@ A is an assign operation.
     ↦ A $EXAMPLE "HELLO WORLD" X
 will define $EXAMPLE as "HELLO WORLD".
 
-"" is a String.
+Something in quotes is a String.
 
 P prints Strings.
 
@@ -40,3 +40,7 @@ They work with the arrows ↿ ⇃ ↼ ⇀.
 Consult all_arrows.txt for all of the arrows.
 
 There are the comparison operators =, <, and >. They work like math operations.
+
+To start a program, just cd into the directory the jar is in and type
+java -jar paternoster.jar <your program file>.
+You have to code in a monospace font.
