@@ -31,6 +31,7 @@ They execute like this:
 will print 16.0.
 
 There are also now conditions.
+
               → P "The case."     ↓
     ↦ ? = 1 1 ↿ P "Not the case." → X
 They work with the arrows ↿ ⇃ ↼ ⇀.
