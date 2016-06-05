@@ -29,3 +29,9 @@ They execute like this:
 
 ↦ A $EXAMPLE * 2 8 P $EXAMPLE X
 will print 16.0.
+
+There are also now conditions.
+          → P "The case."     ↓
+↦ ? = 1 1 ↿ P "Not the case." → X
+They work with the arrows ↿ ⇃ ↼ ⇀.
+Consult all_arrows.txt for all of the arrows.
