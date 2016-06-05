@@ -9,12 +9,15 @@ paternoster is a programming language by glatteis
 
  */
 
+object Pointing {
+    var direction = Direction(0, 0)
+    var location = Location(0, 0)
+}
+
 val startArrows = listOf<Char>('↤', '↥', '↦', '↧')
 val arrows = listOf<Char>('←', '↑', '→', '↓', '↖', '↗', '↘', '↙') + startArrows
 
 var code: ArrayList<ArrayList<Char>> = ArrayList<ArrayList<Char>>()
-var direction = Direction(0, 0)
-var location = Location(0, 0)
 var currentChar: Char = '!'
 
 fun main(args: Array<String>) {
@@ -26,14 +29,14 @@ fun main(args: Array<String>) {
         codeAsString += scanner.nextLine() + "\n"
     }
     createCodeInListForm(codeAsString)
-    location = findStart() ?: throw UnsupportedOperationException("No start defined!")
+    Pointing.location = findStart() ?: throw UnsupportedOperationException("No start defined!")
     do {
         //println(me.glatteis.paternoster.getLocation.x.toString() + " " + me.glatteis.paternoster.getLocation.y.toString())
-        currentChar = code[location.x][location.y]
+        currentChar = code[Pointing.location.x][Pointing.location.y]
 
         if (arrows.contains(currentChar)) {
-            direction.setDirection(currentChar)
-            location.add(direction)
+            Pointing.direction.setDirection(currentChar)
+            Pointing.location.add(Pointing.direction)
             continue
         }
 
@@ -48,7 +51,7 @@ fun main(args: Array<String>) {
             RAM.operation!!.add(currentChar)
         }
 
-        location.add(direction)
+        Pointing.location.add(Pointing.direction)
     } while (true)
 }
 

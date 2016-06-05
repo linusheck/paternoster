@@ -1,11 +1,13 @@
 package me.glatteis.paternoster
 
 import me.glatteis.paternoster.operations.*
+import me.glatteis.paternoster.operations.comparison.*
 import me.glatteis.paternoster.operations.math.AddOperation
 import me.glatteis.paternoster.operations.math.DivOperation
 import me.glatteis.paternoster.operations.math.MulOperation
 import me.glatteis.paternoster.operations.math.SubOperation
 import java.util.*
+import java.util.concurrent.locks.Condition
 
 object RAM {
     val variables = HashMap<String, Any>()
@@ -48,6 +50,10 @@ fun findOperation(initChar: Char): Operation? {
         '-' -> return SubOperation()
         '*' -> return MulOperation()
         '/' -> return DivOperation()
+        '?' -> return ConditionOperation()
+        '=' -> return EqualsOperation()
+        '>' -> return BiggerThanOperation()
+        '<' -> return SmallerThanOperation()
         'X' -> System.exit(0)
         ' ' -> return null //Skip whitespace
     }

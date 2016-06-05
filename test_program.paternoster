@@ -1,7 +1,3 @@
-↦ A $a 0 → ? $a == 1 ⇂ A $a 1 ↓
-                     → A $a 0 ↓
-↓                             ←
-         ↑                                   ←
-                            →" k   ↓
-→ P "You're a" + ? $a == 1  ↾" squ → id now!"↑
 
+          → P "The case."     ↓
+↦ ? = 1 1 ↿ P "Not the case." → X
