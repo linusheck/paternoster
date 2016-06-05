@@ -1,0 +1,10 @@
+
+== START ARROWS ==
+↤ ↥ ↦ ↧
+
+== NORMAL ARROWS ==
+← ↑ → ↓
+↖ ↗ ↘ ↙
+
+== CONDITIONAL ARROWS ==
+↿ ⇃ ↼ ⇀
