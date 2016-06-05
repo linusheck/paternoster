@@ -1,6 +1,8 @@
 # paternoster
 A 2D programming language with arrows.
 
+The documentation is very spartanic, but I hope you can get all the information you need from it.
+
 This is a little programming language that follows arrows around the file.
 
 The program starts at: ↤, ↥, ↦ or ↧  and then follows the given direction.
