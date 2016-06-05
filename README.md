@@ -41,6 +41,8 @@ Consult all_arrows.txt for all of the arrows.
 
 There are the comparison operators =, <, and >. They work like math operations.
 
+If it runs in that direction, a program also works vertically, backwards and diagonally.
+
 To start a program, just cd into the directory the jar is in and type
 java -jar paternoster.jar <your program file>.
 You have to code in a monospace font.
