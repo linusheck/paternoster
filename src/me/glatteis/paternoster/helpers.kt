@@ -50,7 +50,6 @@ fun findOperation(initChar: Char): Operation? {
         'P' -> return PrintOperation(newLine = true)
         '$' -> return VariableOperation()
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.' -> return NumberOperation()
-        '#' -> return SkipOperation()
         '+' -> return AddOperation()
         '-' -> return SubOperation()
         '*' -> return MulOperation()

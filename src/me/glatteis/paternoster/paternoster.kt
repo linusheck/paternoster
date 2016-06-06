@@ -33,13 +33,19 @@ fun main(args: Array<String>) {
     do {
         currentChar = code[Pointing.location.x][Pointing.location.y]
 
-        if (arrows.contains(currentChar)) {
+        if (arrows.contains(currentChar)) { //Change direction if needed.
             Pointing.direction.setDirection(currentChar)
             Pointing.location.add(Pointing.direction)
             continue
         }
 
-        if (currentChar == '|') {
+        if (currentChar == '#') { // # means skip
+            Pointing.location.add(Pointing.direction)
+            Pointing.location.add(Pointing.direction)
+            continue
+        }
+
+        if (currentChar == '|') { //Hold old operation and execute next operation.
             RAM.operationOnHold = RAM.operation
             RAM.operation = null
             Pointing.location.add(Pointing.direction)

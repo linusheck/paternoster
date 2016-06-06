@@ -1,0 +1,12 @@
+
+This program calculates the greatest common divisor using the
+euclidian algorithm.
+
+↦ A $a 8 A $b 9 ↓
+↓               ←  → P $b
+→ ? = $a 0         ↿ ↓
+↓                    ←                         ←
+→ ? = $b 0         ⇃↓
+                   → P $a
+                    → ? > $a $b ⇃ A $b - $b $a ↑
+                                → A $a - $a $b ↑
