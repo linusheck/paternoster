@@ -51,7 +51,7 @@ fun main(args: Array<String>) {
         }
 
         Pointing.location.add(Pointing.direction)
-    } while (true)
+    } while (Pointing.location.x < code.size && Pointing.location.y < code[0].size)
 }
 
 fun findStart(): Location? {

@@ -1,6 +1,10 @@
+This is a program that calculates the factorial of a given number.
 
-                                          → P "Done." P $a X
-↦ A $a 2 → A $a * $a $a  ? > $a 999999999 ↿ ↓
-         ↑                                  ←
-A cool thing is that you can actually write anywhere you want as long as it doesn't
-interfere with the path the program goes.
+↦ A $result 1 A $number 6 ↙
+                         ↓                                       ←
+                         
+                         → A $result * $number $result↙
+                         ↓                           ←
+                         → A $number - $number 1 ? = $number 0 ⇃ ↑
+                         ↓                                     ←
+                         → P $result
