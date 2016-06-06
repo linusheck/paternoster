@@ -29,6 +29,11 @@ for instance skips all of the backslashes and just prints
 YOU'RE A SQUID NOW!
 YOU'RE A KID NOW!
 
+In this program, you can also see |.
+| holds the current operation (for instance the string here) and makes a new one.
+If that operation is finished it will continue with the old one.
+In this example, this is the if that is put between the string.
+
 'P' prints strings and numbers.
 
     ↦ A $EXAMPLE "HELLO WORLD" P $EXAMPLE X
