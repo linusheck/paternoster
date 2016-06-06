@@ -3,7 +3,7 @@
 ↤ ↥ ↦ ↧
 
 == NORMAL ARROWS ==
-← ↑ → ↓
+← ↑  → ↓
 ↖ ↗ ↘ ↙
 
 == CONDITIONAL ARROWS ==

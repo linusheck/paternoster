@@ -1,10 +1,7 @@
-This is a program that calculates the factorial of a given number.
+Testing operation on hold
 
-↦ A $result 1 A $number 6 ↙
-                         ↓                                       ←
-                         
-                         → A $result * $number $result↙
-                         ↓                           ←
-                         → A $number - $number 1 ? = $number 0 ⇃ ↑
-                         ↓                                     ←
-                         → P $result
+↦ A $i 0 ↓
+
+↓        ←             i$ ! i$ A         ←
+→ P "YOU'RE A | ? = $i 1 ⇃\SQUID\→ NOW!" ↑
+                         →\KID\\\↑

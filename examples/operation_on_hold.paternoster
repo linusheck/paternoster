@@ -1,0 +1,28 @@
+== OPERATION ON HOLD ==
+
+↦ A $i 0 ↓
+
+↓        ←             i$ ! i$ A         ←
+→ P "YOU'RE A | ? = $i 1 ⇃\SQUID\→ NOW!" ↑
+                         →\KID\\\↑
+
+The | char holds the ongoing operation and executes the next operation. If that is finished,
+it will resume with the old ongoing operation.
+This example demonstrates the operation on hold using an if clause that is inside a String
+that is held.
+It outputs
+
+YOU'RE A SQUID NOW!
+YOU'RE A KID NOW!
+YOU'RE A SQUID NOW!
+YOU'RE A KID NOW!
+YOU'RE A SQUID NOW!
+YOU'RE A KID NOW!
+YOU'RE A SQUID NOW!
+YOU'RE A KID NOW!
+YOU'RE A SQUID NOW!
+YOU'RE A KID NOW!
+YOU'RE A SQUID NOW!
+YOU'RE A KID NOW!
+    ...
+

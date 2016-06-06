@@ -18,7 +18,7 @@ val startArrows = listOf<Char>('↤', '↥', '↦', '↧')
 val arrows = listOf<Char>('←', '↑', '→', '↓', '↖', '↗', '↘', '↙') + startArrows
 
 var code: ArrayList<ArrayList<Char>> = ArrayList<ArrayList<Char>>()
-var currentChar: Char = '!'
+var currentChar: Char = ' '
 
 fun main(args: Array<String>) {
     if (args.size == 0) throw UnsupportedOperationException("You have to specify a file.")
@@ -39,8 +39,16 @@ fun main(args: Array<String>) {
             continue
         }
 
-        if (RAM.operation != null && RAM.operation?.finished!!) {
+        if (currentChar == '|') {
+            RAM.operationOnHold = RAM.operation
             RAM.operation = null
+            Pointing.location.add(Pointing.direction)
+            continue
+        }
+
+        if (RAM.operation != null && RAM.operation?.finished!!) {
+            RAM.operation = RAM.operationOnHold
+            RAM.operationOnHold = null
         }
         if (RAM.operation == null) {
             val newOperation = findOperation(currentChar)

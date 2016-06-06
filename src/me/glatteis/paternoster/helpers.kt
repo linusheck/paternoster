@@ -1,10 +1,7 @@
 package me.glatteis.paternoster
 
 import me.glatteis.paternoster.operations.*
-import me.glatteis.paternoster.operations.comparison.BiggerThanOperation
-import me.glatteis.paternoster.operations.comparison.ConditionOperation
-import me.glatteis.paternoster.operations.comparison.EqualsOperation
-import me.glatteis.paternoster.operations.comparison.SmallerThanOperation
+import me.glatteis.paternoster.operations.comparison.*
 import me.glatteis.paternoster.operations.math.AddOperation
 import me.glatteis.paternoster.operations.math.DivOperation
 import me.glatteis.paternoster.operations.math.MulOperation
@@ -12,8 +9,9 @@ import me.glatteis.paternoster.operations.math.SubOperation
 import java.util.*
 
 object RAM {
-    val variables = HashMap<String, Any>()
-    var operation: Operation? = null
+    val variables = HashMap<String, Any>()  //The variables currently stored
+    var operation: Operation? = null        //The ongoing operation
+    var operationOnHold: Operation? = null  //Operation on hold. If | is called, the current operation will be stored here
 }
 
 class Direction(var x: Int, var y: Int) {
@@ -29,11 +27,13 @@ class Direction(var x: Int, var y: Int) {
             '↙' -> set(1, -1)
         }
     }
+
     fun set(x: Int, y: Int) {
         this.x = x
         this.y = y
     }
 }
+
 class Location(var x: Int, var y: Int) {
     fun add(direction: Direction) {
         x += direction.x
@@ -59,6 +59,7 @@ fun findOperation(initChar: Char): Operation? {
         '=' -> return EqualsOperation()
         '>' -> return BiggerThanOperation()
         '<' -> return SmallerThanOperation()
+        '!' -> return NotOperation()
         'X' -> System.exit(0)
     }
     throw UnsupportedOperationException("paternoster does not know that char: " + initChar)
