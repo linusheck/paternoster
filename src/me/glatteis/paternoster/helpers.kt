@@ -1,13 +1,15 @@
 package me.glatteis.paternoster
 
 import me.glatteis.paternoster.operations.*
-import me.glatteis.paternoster.operations.comparison.*
+import me.glatteis.paternoster.operations.comparison.BiggerThanOperation
+import me.glatteis.paternoster.operations.comparison.ConditionOperation
+import me.glatteis.paternoster.operations.comparison.EqualsOperation
+import me.glatteis.paternoster.operations.comparison.SmallerThanOperation
 import me.glatteis.paternoster.operations.math.AddOperation
 import me.glatteis.paternoster.operations.math.DivOperation
 import me.glatteis.paternoster.operations.math.MulOperation
 import me.glatteis.paternoster.operations.math.SubOperation
 import java.util.*
-import java.util.concurrent.locks.Condition
 
 object RAM {
     val variables = HashMap<String, Any>()
@@ -41,11 +43,14 @@ class Location(var x: Int, var y: Int) {
 
 fun findOperation(initChar: Char): Operation? {
     when (initChar) {
+        ' ' -> return null //Skip whitespace
         'A' -> return AssignOperation()
         '"' -> return StringOperation()
-        'P' -> return PrintOperation()
+        'p' -> return PrintOperation(newLine = false)
+        'P' -> return PrintOperation(newLine = true)
         '$' -> return VariableOperation()
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.' -> return NumberOperation()
+        '#' -> return SkipOperation()
         '+' -> return AddOperation()
         '-' -> return SubOperation()
         '*' -> return MulOperation()
@@ -55,7 +60,6 @@ fun findOperation(initChar: Char): Operation? {
         '>' -> return BiggerThanOperation()
         '<' -> return SmallerThanOperation()
         'X' -> System.exit(0)
-        ' ' -> return null //Skip whitespace
     }
     throw UnsupportedOperationException("paternoster does not know that char: " + initChar)
 }

@@ -7,7 +7,7 @@ import me.glatteis.paternoster.findOperation
  * Created by Linus on 05.06.2016!
  */
 
-class PrintOperation: Operation() {
+class PrintOperation(val newLine: Boolean): Operation() {
     var operation: Operation? = null
     override fun init() {}
     override fun add(char: Char) {
@@ -19,7 +19,11 @@ class PrintOperation: Operation() {
             operation!!.add(char)
         }
         if (operation!!.finished) {
-            println(operation!!.result())
+            if (newLine) {
+                println(operation!!.result())
+            } else {
+                print(operation!!.result())
+            }
             finished = true
         }
     }

@@ -1,3 +1,6 @@
-          ↙                                          ←
-↦ A $a 0 → ? = $a 0 ⇃ A $a 0 P "You're a kid now!"   ↑
-                    → A $a 1 P "You're a squid now!" ↑
+
+                                          → P "Done." P $a X
+↦ A $a 2 → A $a * $a $a  ? > $a 999999999 ↿ ↓
+         ↑                                  ←
+A cool thing is that you can actually write anywhere you want as long as it doesn't
+interfere with the path the program goes.

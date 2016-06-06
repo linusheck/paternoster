@@ -22,10 +22,10 @@ class AssignOperation : Operation() {
         if (operation == null) {
             operation = findOperation(char)
         }
-        (operation as Operation).add(char)
-        if ((operation as Operation).finished) {
-            val result = operation?.result() ?: "NULL"
-            variableOperation?.saveVariable(result)
+        operation!!.add(char)
+        if (operation!!.finished) {
+            val result = operation!!.result() ?: "NULL"
+            variableOperation!!.saveVariable(result)
             finished = true
         }
     }
