@@ -58,7 +58,7 @@ fun findOperation(initChar: Char): Operation? {
         '=' -> return EqualsOperation()
         '>' -> return BiggerThanOperation()
         '<' -> return SmallerThanOperation()
-        '!' -> return NotOperation()
+        '!' -> return NotOperation() //Not no operation, but an operation that does not
         'X' -> System.exit(0)
     }
     throw UnsupportedOperationException("paternoster does not know that char: " + initChar)
