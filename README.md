@@ -16,7 +16,7 @@ There are these operations right now:
 'A' is an assign operation.
 
     ↦ A  EXAMPLE "HELLO WORLD" X
-will define  EAMXPLE as "HELLO WORLD".
+will define EXAMPLE as "HELLO WORLD".
 
 Something in quotes is a string. Strings have a backslash as skip.
 
@@ -33,6 +33,14 @@ In this program, you can also see |.
 | holds the current operation (for instance the string here) and makes a new one.
 If that operation is finished it will continue with the old one.
 In this example, this is the if that is put between the string.
+
+The same program also works with checkpoints. With C, you can set the
+checkpoint, and with G you can return to it.
+
+    ↦ A i 0 C ↓
+    ↓         ←
+    → P "YOU'RE A | ? = i 1 ⇃\SQUID\→ NOW!" ↑ A i !i G
+                            →\KID\\\↑
 
 'P' prints strings and numbers.
 
