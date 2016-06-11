@@ -15,15 +15,15 @@ There are these operations right now:
 
 'A' is an assign operation.
 
-    ↦ A $EXAMPLE "HELLO WORLD" X
-will define $EXAMPLE as "HELLO WORLD".
+    ↦ A  EXAMPLE "HELLO WORLD" X
+will define  EAMXPLE as "HELLO WORLD".
 
 Something in quotes is a string. Strings have a backslash as skip.
 
-    ↦ A $i 0 ↓
+    ↦ A  i 0 ↓
     
-    ↓        ←             i$ ! i$ A         ←
-    → P "YOU'RE A | ? = $i 1 ⇃\SQUID\→ NOW!" ↑
+    ↓        ←             i  ! i  A         ←
+    → P "YOU'RE A | ? =  i 1 ⇃\SQUID\→ NOW!" ↑
                              →\KID\\\↑
 for instance skips all of the backslashes and just prints
 YOU'RE A SQUID NOW!
@@ -36,7 +36,7 @@ In this example, this is the if that is put between the string.
 
 'P' prints strings and numbers.
 
-    ↦ A $EXAMPLE "HELLO WORLD" P $EXAMPLE X
+    ↦ A  EXAMPLE "HELLO WORLD" P  EXAMPLE X
 will print "HELLO WORLD".
 
 'p' is the same as P, but doesn't do a line break after printing something.
@@ -45,7 +45,7 @@ There are 4 math operations right now, +, -, * and /.
 
 They execute like this:
 
-    ↦ A $EXAMPLE * 2 8 P $EXAMPLE X
+    ↦ A  EXAMPLE * 2 8 P  EXAMPLE X
 will print 16.0.
 
 '?' is a condition:
