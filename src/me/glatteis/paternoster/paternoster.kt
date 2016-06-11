@@ -14,10 +14,10 @@ object Pointing {
     var location = Location(0, 0)
 }
 
-val startArrows = listOf<Char>('↤', '↥', '↦', '↧')
-val arrows = listOf<Char>('←', '↑', '→', '↓', '↖', '↗', '↘', '↙') + startArrows
+val startArrows = listOf('↤', '↥', '↦', '↧')
+val arrows = listOf('←', '↑', '→', '↓', '↖', '↗', '↘', '↙') + startArrows
 
-var code: ArrayList<ArrayList<Char>> = ArrayList<ArrayList<Char>>()
+var code = ArrayList<ArrayList<Char>>()
 var currentChar: Char = ' '
 
 fun main(args: Array<String>) {
@@ -48,21 +48,21 @@ fun main(args: Array<String>) {
 
         if (currentChar == '|') { //Hold old operation and execute next operation.
             RAM.operationOnHold = RAM.operation
-            RAM.operation = null
+            RAM.operation = PlaceholderOperation
             Pointing.location.add(Pointing.direction)
             continue
         }
 
-        if (RAM.operation != null && RAM.operation?.finished!!) {
+        if (RAM.operation != PlaceholderOperation && RAM.operation.finished) {
             RAM.operation = RAM.operationOnHold
-            RAM.operationOnHold = null
+            RAM.operationOnHold = PlaceholderOperation
         }
-        if (RAM.operation == null) {
-            val newOperation = findOperation(currentChar)
+        if (RAM.operation == PlaceholderOperation) {
+            val newOperation = findOperation(currentChar) ?: PlaceholderOperation
             RAM.operation = newOperation
         }
-        if (RAM.operation != null) {
-            RAM.operation!!.add(currentChar)
+        if (RAM.operation != PlaceholderOperation) {
+            RAM.operation.add(currentChar)
         }
 
         Pointing.location.add(Pointing.direction)

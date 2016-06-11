@@ -1,6 +1,7 @@
 package me.glatteis.paternoster.operations
 
 import me.glatteis.paternoster.Operation
+import me.glatteis.paternoster.PlaceholderOperation
 import me.glatteis.paternoster.findOperation
 
 /**
@@ -8,20 +9,28 @@ import me.glatteis.paternoster.findOperation
  */
 
 class PrintOperation(val newLine: Boolean): Operation() {
-    var operation: Operation? = null
+
+    var operation: Operation = PlaceholderOperation
+    var firstChar = true
+
     override fun add(char: Char) {
-        if ((char == ' ' || char == 'P' || char == 'p') && operation == null) return
-        if (char != ' ' && operation == null) {
-            operation = findOperation(char)
+        if (firstChar) {
+            firstChar = false
+            return
         }
-        if (!(operation!!.finished)) {
-            operation!!.add(char)
+        if (operation == PlaceholderOperation) {
+            operation = findOperation(char) ?: return
         }
-        if (operation!!.finished) {
+
+        if (!operation.finished) {
+            operation.add(char)
+        }
+
+        if (operation.finished) {
             if (newLine) {
-                println(operation!!.result())
+                println(operation.result())
             } else {
-                print(operation!!.result())
+                print(operation.result())
             }
             finished = true
         }

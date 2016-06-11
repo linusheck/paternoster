@@ -7,3 +7,5 @@ abstract class Operation {
         return null
     }
 }
+
+object PlaceholderOperation : Operation()

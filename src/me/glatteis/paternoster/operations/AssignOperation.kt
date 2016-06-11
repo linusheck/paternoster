@@ -1,30 +1,35 @@
 package me.glatteis.paternoster.operations
 
 import me.glatteis.paternoster.Operation
+import me.glatteis.paternoster.PlaceholderOperation
 import me.glatteis.paternoster.findOperation
 
 /**
  * Created by Linus on 05.06.2016!
  */
 class AssignOperation : Operation() {
-    var operation: Operation? = null
-    var variableOperation: NamespaceOperation? = null
+
+    var operation: Operation = PlaceholderOperation
+
+    val namespaceOperation: NamespaceOperation = NamespaceOperation()
+    var namespaceOperationStarted = false
+
     override fun add(char: Char) {
-        if (variableOperation == null && (char == 'A' || char == ' ')) return
-        if (variableOperation == null) {
-            variableOperation = NamespaceOperation()
+        if (!namespaceOperationStarted) {
+            if (char == 'A' || char == ' ') return
+            namespaceOperationStarted = true
         }
-        if (!(variableOperation?.finished ?: true)) {
-            variableOperation?.add(char)
+        if (!namespaceOperation.finished) {
+            namespaceOperation.add(char)
             return
         }
-        if (operation == null) {
-            operation = findOperation(char)
+        if (operation.equals(PlaceholderOperation)) {
+            operation = findOperation(char) ?: return
         }
-        operation?.add(char)
-        if (operation?.finished ?: false) {
-            val result = operation!!.result() ?: "NULL"
-            variableOperation?.saveVariable(result)
+        operation.add(char)
+        if (operation.finished) {
+            val result = operation.result() ?: "NULL"
+            namespaceOperation.saveVariable(result)
             finished = true
         }
     }

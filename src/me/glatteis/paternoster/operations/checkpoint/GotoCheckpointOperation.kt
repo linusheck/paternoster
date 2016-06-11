@@ -10,7 +10,7 @@ import me.glatteis.paternoster.RAM
 class GotoCheckpointOperation : Operation() {
 
     init {
-        val checkpoint = RAM.checkpoint ?: throw RuntimeException("Goto Checkpoint called, yet no checkpoint defined.")
+        val checkpoint = RAM.checkpoint
         Pointing.location = checkpoint.location.clone()
         Pointing.direction = checkpoint.direction.clone()
         finished = true

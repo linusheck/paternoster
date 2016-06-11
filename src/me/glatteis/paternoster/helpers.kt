@@ -12,10 +12,10 @@ import me.glatteis.paternoster.operations.math.SubOperation
 import java.util.*
 
 object RAM {
-    val variables = HashMap<String, Any>()      //The variables currently stored
-    var operation: Operation? = null            //The ongoing operation
-    var operationOnHold: Operation? = null      //Operation on hold. If | is called, the current operation will be stored here
-    var checkpoint: Checkpoint? = null
+    val variables = HashMap<String, Any>()                  //The variables currently stored
+    var operation: Operation = PlaceholderOperation         //The ongoing operation
+    var operationOnHold: Operation = PlaceholderOperation   //Operation on hold. If | is called, the current operation will be stored here
+    var checkpoint: Checkpoint = Checkpoint(Pointing.location, Pointing.direction)
 }
 
 class Direction(var x: Int, var y: Int) : Cloneable {
