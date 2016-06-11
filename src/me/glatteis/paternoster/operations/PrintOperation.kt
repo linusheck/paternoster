@@ -9,9 +9,8 @@ import me.glatteis.paternoster.findOperation
 
 class PrintOperation(val newLine: Boolean): Operation() {
     var operation: Operation? = null
-    override fun init() {}
     override fun add(char: Char) {
-        if ((char == ' ' || char == 'P' ) && operation == null) return
+        if ((char == ' ' || char == 'P' || char == 'p') && operation == null) return
         if (char != ' ' && operation == null) {
             operation = findOperation(char)
         }

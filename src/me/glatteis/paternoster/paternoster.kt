@@ -29,6 +29,7 @@ fun main(args: Array<String>) {
         codeAsString += scanner.nextLine() + "\n"
     }
     createCodeInListForm(codeAsString)
+
     Pointing.location = findStart() ?: throw UnsupportedOperationException("No start defined!")
     do {
         currentChar = code[Pointing.location.x][Pointing.location.y]

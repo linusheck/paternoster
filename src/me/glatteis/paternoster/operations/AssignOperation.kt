@@ -8,24 +8,23 @@ import me.glatteis.paternoster.findOperation
  */
 class AssignOperation : Operation() {
     var operation: Operation? = null
-    var variableOperation: VariableOperation? = null
+    var variableOperation: NamespaceOperation? = null
     override fun add(char: Char) {
-        if (variableOperation == null && char == 'A') return
-        if (variableOperation == null && char == '$') {
-            variableOperation = VariableOperation()
+        if (variableOperation == null && (char == 'A' || char == ' ')) return
+        if (variableOperation == null) {
+            variableOperation = NamespaceOperation()
         }
-        if (variableOperation != null && !(variableOperation as VariableOperation).finished) {
+        if (!(variableOperation?.finished ?: true)) {
             variableOperation?.add(char)
             return
         }
-        if (variableOperation == null) return
         if (operation == null) {
             operation = findOperation(char)
         }
-        operation!!.add(char)
-        if (operation!!.finished) {
+        operation?.add(char)
+        if (operation?.finished ?: false) {
             val result = operation!!.result() ?: "NULL"
-            variableOperation!!.saveVariable(result)
+            variableOperation?.saveVariable(result)
             finished = true
         }
     }
