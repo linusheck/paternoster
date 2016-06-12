@@ -1,14 +1,15 @@
 package me.glatteis.paternoster.operations.math
 
 import me.glatteis.paternoster.Operation
+import me.glatteis.paternoster.PlaceholderOperation
 import me.glatteis.paternoster.findOperation
 
 /**
  * Created by Linus on 05.06.2016!
  */
 abstract class MathOperation: Operation() {
-    var operationOne: Operation? = null
-    var operationTwo: Operation? = null
+    var operationOne: Operation = PlaceholderOperation
+    var operationTwo: Operation = PlaceholderOperation
     var result: Any? = null
     var firstChar = true
     override fun add(char: Char) {
@@ -16,29 +17,23 @@ abstract class MathOperation: Operation() {
             firstChar = false
             return
         }
-        if (operationOne == null) {
-            if (char == ' ') return
-            operationOne = findOperation(char)
+        if (operationOne == PlaceholderOperation) {
+            operationOne = findOperation(char) ?: return
         }
-        if (operationOne != null && !(operationOne!!.finished)) {
-            operationOne!!.add(char)
-        }
-        if (!operationOne!!.finished) {
+        if (!operationOne.finished) {
+            operationOne.add(char)
             return
         }
-        if (operationTwo == null) {
-            if (char == ' ') return
-            else operationTwo = findOperation(char)
+        if (operationTwo == PlaceholderOperation) {
+            operationTwo = findOperation(char) ?: return
         }
-        if (operationTwo != null && !(operationTwo!!.finished)) {
-            operationTwo!!.add(char)
-        }
-        if (!operationTwo!!.finished) {
+        if (!operationTwo.finished) {
+            operationTwo.add(char)
             return
         }
-        val resultOne = operationOne!!.result()
-        val resultTwo = operationTwo!!.result()
-        if ((resultOne is Number) && (resultTwo is Number)) { //Will extend for Strings. Maybe.
+        val resultOne = operationOne.result()
+        val resultTwo = operationTwo.result()
+        if (resultOne is Number && resultTwo is Number) {
             result = doMath(resultOne as Float, resultTwo as Float)
             finished = true
             return

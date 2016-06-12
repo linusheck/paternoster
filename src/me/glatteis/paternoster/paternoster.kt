@@ -95,4 +95,13 @@ fun createCodeInListForm(codeAsString: String) {
     }
 }
 
+fun extendCode(x: Int, y: Int) {
+    for (line in Pointing.code.size - 1..x) {
+        Pointing.code.add(ArrayList(Pointing.code[0].size))
+        for (char in Pointing.code[0].size - 1..y) {
+            Pointing.code[line].add(' ')
+        }
+    }
+}
+
 
