@@ -1,10 +1,9 @@
 == OPERATION ON HOLD ==
 
-↦ A $i 0 ↓
-
-↓        ←             i$ ! i$ A         ←
-→ P "YOU'RE A | ? = $i 1 ⇃\SQUID\→ NOW!" ↑
-                         →\KID\\\↑
+    ↦ A i 0 C ↓
+    ↓         ←
+    → P "YOU'RE A | ? = i 1 ⇃\SQUID\→ NOW!" ↑ A i !i G
+                            →\KID\\\↑
 
 The | char holds the ongoing operation and executes the next operation. If that is finished,
 it will resume with the old ongoing operation.

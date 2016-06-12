@@ -1,9 +1,6 @@
 package me.glatteis.paternoster
 
 import me.glatteis.paternoster.operations.*
-import me.glatteis.paternoster.operations.checkpoint.Checkpoint
-import me.glatteis.paternoster.operations.checkpoint.DefineCheckpointOperation
-import me.glatteis.paternoster.operations.checkpoint.GotoCheckpointOperation
 import me.glatteis.paternoster.operations.comparison.*
 import me.glatteis.paternoster.operations.math.AddOperation
 import me.glatteis.paternoster.operations.math.DivOperation
@@ -15,7 +12,6 @@ object RAM {
     val variables = HashMap<String, Any>()                  //The variables currently stored
     var operation: Operation = PlaceholderOperation         //The ongoing operation
     var operationOnHold: Operation = PlaceholderOperation   //Operation on hold. If | is called, the current operation will be stored here
-    var checkpoint: Checkpoint = Checkpoint(Pointing.location, Pointing.direction)
 }
 
 class Direction(var x: Int, var y: Int) : Cloneable {
@@ -70,8 +66,6 @@ fun findOperation(initChar: Char): Operation? {
         '>' -> return BiggerThanOperation()
         '<' -> return SmallerThanOperation()
         '!' -> return NotOperation()
-        'C' -> return DefineCheckpointOperation()
-        'G' -> return GotoCheckpointOperation()
         'X' -> System.exit(0)
     }
     return NamespaceOperation()

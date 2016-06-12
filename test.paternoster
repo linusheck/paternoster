@@ -1,13 +1,3 @@
 
-This program calculates the greatest common divisor using the
-euclidian algorithm. 
 
-↦ A  a 4 A  b 6 ↓
-↓               ←  → P b
-→ ? =  a 0         ↿ ↓
-↓                    ←
-→ C ? =  b 0         ⇃↓
-                     → P a
-                      → ? >  a  b ⇃ A  b -  b  a G
-                                  → A  a -  a  b G
 
