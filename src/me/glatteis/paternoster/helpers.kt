@@ -52,7 +52,7 @@ class Location(var x: Int, var y: Int) : Cloneable {
 fun findOperation(initChar: Char): Operation? {
     when (initChar) {
         ' ' -> return null //Skip whitespace
-        'A' -> return AssignOperation()
+        'a' -> return AssignOperation()
         '"' -> return StringOperation()
         'p' -> return PrintOperation(newLine = false)
         'P' -> return PrintOperation(newLine = true)
@@ -66,7 +66,7 @@ fun findOperation(initChar: Char): Operation? {
         '>' -> return BiggerThanOperation()
         '<' -> return SmallerThanOperation()
         '!' -> return NotOperation()
-        'X' -> System.exit(0)
+        'x' -> System.exit(0)
     }
     return NamespaceOperation()
 }

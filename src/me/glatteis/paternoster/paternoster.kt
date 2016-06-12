@@ -12,12 +12,12 @@ paternoster is a programming language by glatteis
 object Pointing {
     var direction = Direction(0, 0)
     var location = Location(0, 0)
+    var code = ArrayList<ArrayList<Char>>()
 }
 
 val startArrows = listOf('↤', '↥', '↦', '↧')
 val arrows = listOf('←', '↑', '→', '↓', '↖', '↗', '↘', '↙') + startArrows
 
-var code = ArrayList<ArrayList<Char>>()
 var currentChar: Char = ' '
 
 fun main(args: Array<String>) {
@@ -32,7 +32,7 @@ fun main(args: Array<String>) {
 
     Pointing.location = findStart() ?: throw UnsupportedOperationException("No start defined!")
     do {
-        currentChar = code[Pointing.location.x][Pointing.location.y]
+        currentChar = Pointing.code[Pointing.location.x][Pointing.location.y]
 
         if (arrows.contains(currentChar)) { //Change direction if needed.
             Pointing.direction.setDirection(currentChar)
@@ -66,11 +66,11 @@ fun main(args: Array<String>) {
         }
 
         Pointing.location.add(Pointing.direction)
-    } while (Pointing.location.x < code.size && Pointing.location.y < code[0].size)
+    } while (Pointing.location.x < Pointing.code.size && Pointing.location.y < Pointing.code[0].size)
 }
 
 fun findStart(): Location? {
-    code.forEachIndexed { i, arrayList ->
+    Pointing.code.forEachIndexed { i, arrayList ->
         arrayList.forEachIndexed { i2, c ->
             if (startArrows.contains(c)) {
                 return Location(i, i2)
@@ -87,7 +87,7 @@ fun createCodeInListForm(codeAsString: String) {
     }
     for (line in codeAsString.split('\n')) {
         val list = ArrayList<Char>()
-        code.add(list)
+        Pointing.code.add(list)
         for (i in 0.until(sizeY)) {
             if (line.length <= i) list.add(' ')
             else list.add(line[i])
