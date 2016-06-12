@@ -6,71 +6,67 @@ The documentation is very spartanic, but I hope you can get all the information 
 This is a little programming language that follows arrows around the file.
 
 The program starts at: ↤, ↥, ↦ or ↧  and then follows the given direction.
-If '←', '↑', '→', '↓', '↖', '↗', '↘', '↙' are hit the program will follow their direction.
+If ←, ↑, →, ↓, ↖, ↗, ↘, ↙ are hit the program will follow their direction.
 
-There are these operations right now:
+The code can also modify itself.
 
-'X' terminates the program.
-↦ X does nothing.
+There are operations, which are basically commands. Some have results, some do actions.
 
-'A' is an assign operation.
+Let's look at a little program.
 
-    ↦ A  EXAMPLE "HELLO WORLD" X
-will define EXAMPLE as "HELLO WORLD".
+```
+↦ M 2 2 "+" M 2 8 "X" ↓
+↑ P                   ←
+```
 
-Something in quotes is a string. Strings have a backslash as skip.
+Okay, there's a lot going on in this. Let's start at ↦, which tells the program to start there.
+Now, M is called. M is the modify operation. It modifies the character at [2, 2] to be a plus.
+This changes the M into a +. + is an add operation, and it takes two arguments, like this:
++ 1 3 => 4
+After that, there is another modify operation which modifies the character on [2, 8] to be a X.
+X simply terminates the program. The program would now look like this:
+```
+↦ + 2 2 X+" M 2 8 "X" ↓
+↑ P                   ←
+```
+Now there's an arrow which redirects the program. Now we hit P, which prints the result of the next operation.
+The next operation is + 2 2, so it will print 4. X terminates the program.
 
-    ↦ A  i 0 ↓
-    
-    ↓        ←             i  ! i  A         ←
-    → P "YOU'RE A | ? =  i 1 ⇃\SQUID\→ NOW!" ↑
-                             →\KID\\\↑
-for instance skips all of the backslashes and just prints
-YOU'RE A SQUID NOW!
-YOU'RE A KID NOW!
+These are the current operations:
 
-In this program, you can also see |.
-| holds the current operation (for instance the string here) and makes a new one.
-If that operation is finished it will continue with the old one.
-In this example, this is the if that is put between the string.
+A assigns a variable to a value.
+```
+A example 5
+```
+will assign 5 to example.
 
-The same program also works with checkpoints. With C, you can set the
-checkpoint, and with G you can return to it.
+P prints a value.
+```
+P example
+```
+will print 5.
+```
+p example
+```
+will print 5 without linebreak.
 
-    ↦ A i 0 C ↓
-    ↓         ←
-    → P "YOU'RE A | ? = i 1 ⇃\SQUID\→ NOW!" ↑ A i !i G
-                            →\KID\\\↑
+"" is a string.
+```
+P "Hello World!"
+```
+will print Hello World!
 
-'P' prints strings and numbers.
+The operations +, -, /, * and % work as you would think they do.
 
-    ↦ A  EXAMPLE "HELLO WORLD" P  EXAMPLE X
-will print "HELLO WORLD".
+=, < and > are conditional operators. They work like math operations, and return 1 for true and 0 for false.
 
-'p' is the same as P, but doesn't do a line break after printing something.
+! inverts 1 to 0 and 0 to 1.
 
-There are 4 math operations right now, +, -, * and /.
+? is an if operation.
+After testing, they follow the arrows ↿, ⇃, ↼, ⇀ if the condition is true.
+```
+? = x 1 ⇃ P "x is not 1."
+        X
+```
+will only print "x is not 1" if x is not one.
 
-They execute like this:
-
-    ↦ A  EXAMPLE * 2 8 P  EXAMPLE X
-will print 16.0.
-
-'?' is a condition:
-
-              → P "The case."     ↓
-    ↦ ? = 1 1 ↿ P "Not the case." → X
-
-They work with the arrows ↿ ⇃ ↼ ⇀.
-Consult all_arrows.txt for all of the arrows.
-
-'#' skips the next character.
-
-There are the comparison operators =, <, and >. They work like math operations.
-The operator '!' inverts 1 to 0 and 0 to 1.
-
-If it runs in that direction, a program also works vertically, backwards and diagonally.
-
-To start a program, just cd into the directory the jar is in and type
-java -jar paternoster.jar [program file].
-You have to code in a monospace font.

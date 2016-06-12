@@ -2,10 +2,7 @@ package me.glatteis.paternoster
 
 import me.glatteis.paternoster.operations.*
 import me.glatteis.paternoster.operations.comparison.*
-import me.glatteis.paternoster.operations.math.AddOperation
-import me.glatteis.paternoster.operations.math.DivOperation
-import me.glatteis.paternoster.operations.math.MulOperation
-import me.glatteis.paternoster.operations.math.SubOperation
+import me.glatteis.paternoster.operations.math.*
 import java.util.*
 
 object RAM {
@@ -61,6 +58,7 @@ fun findOperation(initChar: Char): Operation? {
         '-' -> return SubOperation()
         '*' -> return MulOperation()
         '/' -> return DivOperation()
+        '%' -> return ModuloOperation()
         '?' -> return ConditionOperation()
         '=' -> return EqualsOperation()
         '>' -> return BiggerThanOperation()

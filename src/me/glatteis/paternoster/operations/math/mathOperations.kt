@@ -10,7 +10,6 @@ class AddOperation : MathOperation() {
     }
 }
 
-
 class SubOperation : MathOperation() {
     override fun doMath(x: Float, y: Float): Float {
         return x - y
