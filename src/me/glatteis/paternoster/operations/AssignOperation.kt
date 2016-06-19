@@ -23,7 +23,7 @@ class AssignOperation : Operation() {
             namespaceOperation.add(char)
             return
         }
-        if (operation.equals(PlaceholderOperation)) {
+        if (operation == PlaceholderOperation) {
             operation = findOperation(char) ?: return
         }
         operation.add(char)

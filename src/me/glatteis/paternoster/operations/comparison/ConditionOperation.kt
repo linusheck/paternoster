@@ -1,9 +1,6 @@
 package me.glatteis.paternoster.operations.comparison
 
-import me.glatteis.paternoster.Operation
-import me.glatteis.paternoster.PlaceholderOperation
-import me.glatteis.paternoster.Pointing
-import me.glatteis.paternoster.findOperation
+import me.glatteis.paternoster.*
 
 /**
  * Created by Linus on 05.06.2016!
@@ -21,13 +18,14 @@ class ConditionOperation : Operation() {
         if (operation == PlaceholderOperation) {
             operation = findOperation(char) ?: return
         }
-        if (!(operation.finished)) {
+        if (!operation.finished) {
+            println("added $char")
             operation.add(char)
             return
         }
         if (char == ' ') return
         val result = operation.result() == 1F
-        if (!result && operation.result() != 0F) throw UnsupportedOperationException("Boolean must be 0 or 1, was " + operation.result())
+        if (!result && operation.result() != 0F) throw PaternosterException("Boolean must be 0 or 1, was " + operation.result())
         finished = true
         if (!result) return //Continue when false
         var direction = '!'
@@ -37,7 +35,7 @@ class ConditionOperation : Operation() {
             '↼', '↽' -> direction = '←'
             '⇀', '⇁' -> direction = '→'
         }
-        if (direction == '!') throw UnsupportedOperationException("$char is not a valid arrow for conditions.")
+        if (direction == '!') throw PaternosterException("$char is not a valid arrow for conditions.")
         Pointing.direction.setDirection(direction)
     }
 

@@ -21,7 +21,7 @@ val arrows = listOf('←', '↑', '→', '↓', '↖', '↗', '↘', '↙') + st
 var currentChar: Char = ' '
 
 fun main(args: Array<String>) {
-    if (args.size == 0) throw UnsupportedOperationException("You have to specify a file.")
+    if (args.size == 0) throw PaternosterException("You have to specify a file")
     val file = args[0]
     val scanner = Scanner(FileInputStream(file), "UTF-8")
     var codeAsString = ""
@@ -30,7 +30,7 @@ fun main(args: Array<String>) {
     }
     createCodeInListForm(codeAsString)
 
-    Pointing.location = findStart() ?: throw UnsupportedOperationException("No start defined!")
+    Pointing.location = findStart() ?: throw PaternosterException("No start defined")
     do {
         currentChar = Pointing.code[Pointing.location.x][Pointing.location.y]
 
@@ -96,9 +96,9 @@ fun createCodeInListForm(codeAsString: String) {
 }
 
 fun extendCode(x: Int, y: Int) {
-    for (line in Pointing.code.size - 1..x) {
+    for (line in Pointing.code.size..x + 1) {
         Pointing.code.add(ArrayList(Pointing.code[0].size))
-        for (char in Pointing.code[0].size - 1..y) {
+        for (char in Pointing.code[0].size..y + 1) {
             Pointing.code[line].add(' ')
         }
     }

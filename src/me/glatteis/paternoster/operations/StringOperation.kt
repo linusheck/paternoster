@@ -15,12 +15,11 @@ class StringOperation: Operation() {
             firstChar = false
             return
         }
-        if (char == '\\') return // \ is the official char to skip whitespace
         if (char == '"') finished = true
         else string += char
     }
 
     override fun result(): String {
-        return string
+        return string.replace("\\n", "\n").replace("\\", "")
     }
 }

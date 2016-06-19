@@ -1,6 +1,7 @@
 package me.glatteis.paternoster.operations.comparison
 
 import me.glatteis.paternoster.Operation
+import me.glatteis.paternoster.PaternosterException
 import me.glatteis.paternoster.findOperation
 import me.glatteis.paternoster.operations.math.MathOperation
 
@@ -50,7 +51,7 @@ class NotOperation(): Operation() {
         } else if (operation!!.result() == 0F) {
             result = 1F
         } else {
-            throw UnsupportedOperationException("Can only invert 1 or 0.")
+            throw PaternosterException("Can only invert 1 or 0.")
         }
         finished = true
     }

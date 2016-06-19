@@ -3,6 +3,8 @@ package me.glatteis.paternoster
 import me.glatteis.paternoster.operations.*
 import me.glatteis.paternoster.operations.comparison.*
 import me.glatteis.paternoster.operations.math.*
+import me.glatteis.paternoster.operations.selfmodification.GetOperation
+import me.glatteis.paternoster.operations.selfmodification.ModifyOperation
 import java.util.*
 
 object RAM {
@@ -51,8 +53,7 @@ fun findOperation(initChar: Char): Operation? {
         ' ' -> return null //Skip whitespace
         'A' -> return AssignOperation()
         '"' -> return StringOperation()
-        'p' -> return PrintOperation(newLine = false)
-        'P' -> return PrintOperation(newLine = true)
+        'P' -> return PrintOperation()
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.' -> return NumberOperation()
         '+' -> return AddOperation()
         '-' -> return SubOperation()
@@ -65,6 +66,8 @@ fun findOperation(initChar: Char): Operation? {
         '<' -> return SmallerThanOperation()
         '!' -> return NotOperation()
         'M' -> return ModifyOperation()
+        'G' -> return GetOperation()
+        'Y' -> return InputOperation()
         'X' -> System.exit(0)
     }
     return NamespaceOperation()

@@ -8,7 +8,7 @@ import me.glatteis.paternoster.findOperation
  * Created by Linus on 05.06.2016!
  */
 
-class PrintOperation(val newLine: Boolean): Operation() {
+class PrintOperation() : Operation() {
 
     var operation: Operation = PlaceholderOperation
     var firstChar = true
@@ -27,11 +27,7 @@ class PrintOperation(val newLine: Boolean): Operation() {
         }
 
         if (operation.finished) {
-            if (newLine) {
-                println(operation.result())
-            } else {
-                print(operation.result())
-            }
+            print(operation.result())
             finished = true
         }
     }
